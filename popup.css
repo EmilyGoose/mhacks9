@@ -19,7 +19,7 @@ button {
     width:198px; height: 27px;
     color: white;
     text-align: left;
-    font-family: Calibri;
+    font-family: Raleway;
     border: none;
     cursor: pointer;
 }
@@ -35,6 +35,7 @@ button:active {
 h1.bar {
     color: white;
     margin-left: 15px;
+    font-family: Raleway;
 }
 header {
     display: flex;
