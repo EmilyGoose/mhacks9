@@ -8,6 +8,8 @@ body {
   margin-bottom: 20px;
 }
 
-img {
-    float:left;
+button {
+    display:block;
+    background-color: white;
+    width:198px; height: 27px;
 }
