@@ -27,8 +27,8 @@
 
   "content_scripts": [
     {
-      "matches": ["*://*.amazon.com/gp/cart/*"],
-      "css" : ["styles/modal.css"],
+      "matches": ["*://*.amazon.com/*"],
+      "css" : ["styles/modal.css", "styles/contentstyle.css"],
       "js": ["scripts/jquery.js", "scripts/modal.js", "scripts/contentscript.js"]
     }
   ],

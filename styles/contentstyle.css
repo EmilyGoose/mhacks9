@@ -1,0 +1,7 @@
+#theFakeButton {
+  background-color: red;
+  z-index: 2147483647;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
