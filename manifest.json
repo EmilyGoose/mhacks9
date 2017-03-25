@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "angery mom savings extension",
+  "description": "This extension will text your mom/gf/dog/goldfish if you spend money on dumb stuff",
+  "version": "0.1",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+   "activeTab"
+   ]
+}
