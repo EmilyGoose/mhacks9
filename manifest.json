@@ -7,9 +7,19 @@
 
   "browser_action": {
    "default_icon": "icon.png",
-   "default_popup": "popup.html"
+   "default_popup": "popup.html",
+   "default_title": "A N G E R Y"
   },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.amazon.com/s/*"],
+      "js": ["jquery.js", "amazonscript.js"]
+    }
+  ],
+
   "permissions": [
-   "activeTab"
-   ]
+    "tabs",
+    "activeTab"
+  ]
 }
