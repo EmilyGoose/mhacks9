@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
-  "name": "angery mom savings extension",
+  "name": "3-Click Ordering",
   "description": "This extension will text your mom/gf/dog/goldfish if you spend money on dumb stuff",
   "version": "0.1",
 
