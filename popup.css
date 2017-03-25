@@ -10,8 +10,19 @@ body {
 
 button {
     display:block;
-    background-color: white;
+    margin-bottom: 5px;
+    background-color: rgb(100, 150, 200);
     width:198px; height: 27px;
+    color: white;
     text-align: left;
     font-family: Calibri;
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(52, 99, 146);
+}
+
+button:active {
+    background-color: rgb(39, 73, 109);
 }
