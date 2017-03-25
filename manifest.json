@@ -11,7 +11,7 @@
       "19": "Icon.png"
   },
 
-  "version": "0.2",
+  "version": "0.5",
 
   "browser_action": {
    "default_icon": {
