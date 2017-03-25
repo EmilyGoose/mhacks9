@@ -9,13 +9,13 @@ body {
 }
 
 a {
-    text-decoration: none;  
+    text-decoration: none;
 }
 
 button {
     display:block;
     margin-bottom: 5px;
-    background-color: rgb(100, 150, 200);
+    background-color: rgb(27, 160, 225);
     width:198px; height: 27px;
     color: white;
     text-align: left;
@@ -30,4 +30,18 @@ button:hover {
 
 button:active {
     background-color: rgb(39, 73, 109);
+}
+
+h1.bar {
+    color: white;
+    margin-left: 15px;
+}
+header {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    background-color: rgb(27, 160, 225);
+}
+body{
+    margin: 0;
 }
