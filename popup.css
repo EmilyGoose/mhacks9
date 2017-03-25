@@ -12,4 +12,6 @@ button {
     display:block;
     background-color: white;
     width:198px; height: 27px;
+    text-align: left;
+    font-family: Calibri;
 }
