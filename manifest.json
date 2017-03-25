@@ -13,13 +13,16 @@
 
   "content_scripts": [
     {
-      "matches": ["https://www.amazon.com/s/*"],
-      "js": ["jquery.js", "amazonscript.js"]
+      "matches": ["*://*.amazon.com/*"],
+      "js": ["scripts/jquery.js", "scripts/amazonscript.js"]
     }
   ],
 
+  "background": {
+    "scripts": ["scripts/background.js"]
+  },
+
   "permissions": [
-    "tabs",
-    "activeTab"
+    "tabs", "webNavigation", "*://*.amazon.com/*"
   ]
 }
