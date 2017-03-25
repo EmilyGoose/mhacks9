@@ -15,13 +15,9 @@
     {
       "matches": ["*://*.amazon.com/gp/cart/*"],
       "css" : ["styles/modal.css"],
-      "js": ["scripts/jquery.js", "scripts/amazonscript.js"]
+      "js": ["scripts/jquery.js", "scripts/modal.js", "scripts/contentscript.js"]
     }
   ],
-
-  "background": {
-    "scripts": ["scripts/background.js"]
-  },
 
   "permissions": [
     "tabs", "webNavigation", "*://*.amazon.com/*"
