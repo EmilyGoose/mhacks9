@@ -1,3 +1,5 @@
 $(document).ready(function(){
-  alert("T E S T");
+  if ($("#add-to-cart-button").length > 0) {
+    alert("NOOOOOOOOO DON'T BUY IT")
+  }
 });
