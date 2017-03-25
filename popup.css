@@ -17,6 +17,7 @@ button {
     text-align: left;
     font-family: Calibri;
     border: none;
+    cursor: pointer;
 }
 
 button:hover {
