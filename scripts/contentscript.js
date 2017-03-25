@@ -4,7 +4,10 @@ $(document).ready(function(){
     var theBox = $('input[name=proceedToCheckout]');
     var theFakeBox = $(
       "<div id='theFakeBox'>" +
+      "<div id='brand'>" +
+      "<img src='" + chrome.extension.getURL('icons/icon128.png') + "' alt='3-Click Ordering' />" +
       "<h1>STOP!</h1>" +
+      "</div>" +
       "<p>You are about to spend " +
       "<span class='money'>" +
       $('.sc-price-sign').html() + "</span>" +
