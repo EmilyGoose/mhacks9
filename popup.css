@@ -37,6 +37,7 @@ h1.bar {
     color: white;
     margin-left: 15px;
     font-family: Raleway;
+    font-size: 48px;
 }
 header {
     display: flex;
@@ -50,5 +51,10 @@ body{
 
 h2 {
   font-family: Raleway;
+  margin: 20px;
+  font-size: 32px;
+}
+
+form {
   margin: 20px;
 }
