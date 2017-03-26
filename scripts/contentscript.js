@@ -1,3 +1,6 @@
+function daysBetween(day1, day2) {
+  return Math.round((day2 - day1) / (1000*60*60*24));
+}
 
 $(document).ready(function(){
   if ($('input[name=proceedToCheckout]').length > 0) {
@@ -11,10 +14,9 @@ $(document).ready(function(){
       "</div>" +
       "<p>You are about to spend " +
       "<span class='money'>" +
-      $('.sc-price-sign').html() + "</span>" +
-      "<p>I would tell you how much longer your goal will take " +
-      "but it's not implemented.</p>" +
-      "<p>Are you sure you want to proceed?</p>" +
+      $('.sc-price-sign').html() + "</span></p>" +
+      //Here is where the days left will be inserted
+      "<p id='proceedWithBuy3click'>Are you sure you want to proceed?</p>" +
       "<button id='userIsSure'class='click' "+
       "onclick='var element = document.getElementById(\"theFakeBox\");" +
       "element.parentNode.removeChild(element);'>I'm sure!</button>" +
@@ -22,6 +24,38 @@ $(document).ready(function(){
     );
 
     theFakeBox.insertBefore("#gutterCartViewForm");
+
+    chrome.storage.sync.get(['lastIncome', 'calculatedTotalIncome', 'goal'], function (items) {
+      let lastIncome = items.lastIncome;
+      let calcTotalIncome = items.calculatedTotalIncome;
+      let goal = items.goal;
+
+      let itemPrice = parseFloat($('.sc-price-sign').html().substring(1));
+
+      let saved = calcTotalIncome + daysBetween(lastIncome.created, Date.now()) *  parseInt(lastIncome.value);
+
+      let newSaved = (saved - itemPrice);
+
+      let price = parseFloat(goal.price.substring(1));
+
+      let daysLeft = Math.round((price - saved)/lastIncome.value);
+
+      let newDaysLeft = Math.round((price - newSaved)/lastIncome.value);
+
+      let string = $(
+        "<p id='goalInfo'>" +
+        "Your goal will currently take " +
+        daysLeft +
+        " days</p>" +
+        "<p>" +
+        "With this purchase, it will take " +
+        (newDaysLeft - daysLeft) +
+        " more days.</p>"
+      );
+
+      string.insertBefore($("#proceedWithBuy3click"));
+
+    });
 
   } else if ($('#add-to-cart-button').length > 0) {
     //Runs on the item page and offers to set it as a goal
