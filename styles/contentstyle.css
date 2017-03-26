@@ -18,6 +18,27 @@
   margin-bottom: 20px;
 }
 
+#setGoalButton {
+  color: rgb(27, 160, 225);
+  border: solid 1px rgb(27, 160, 225);
+  background: white;
+  font-family: Raleway;
+  cursor: pointer;
+  width:75px; height: 20px;
+  text-align: left;
+}
+
+#setGoalButton:hover {
+    color: rgb(52, 99, 146);
+    border: solid 1px rgb(52, 99, 146);
+}
+
+#setGoalButton:active {
+    background-color: rgb(39, 73, 109);
+    border: none;
+    color: white;
+}
+
 .money {
   color: red;
 }

@@ -10,37 +10,45 @@
       <img src = "icon64stencil.png" alt = "Icon">
       <h1 class="bar">Preferences</h1>
     </header>
-    <h2 id="initial">Hello! Before we begin, let's set up your account.</h2>
+    <h2 id="message">Hello! Before we begin, let's set up your account.</h2>
     <form>
-      <div class="form-input">
-        <label for="name">Your name: </label>
-        <input type="text" name="name" id="name" />
-      </div>
-      <div class="form-input">
-        <label for="phone">Your preferred contact's phone number: </label>
-        <input type="phone" name="mom" id="mom" />
-      </div>
-      <div class="form-input">
-        <label for="income">Your disposable income: </label>
-        <input type="number" name="income" id="income" />
-      </div>
-      <div class="form-input">
-        <label for="income">Over how long? </label>
-        <select name="income-period" id="income-period">
-          <option value="days">1 day</option>
-        </select>
-      </div>
-      <div class="form-input">
-        <label for="name">Allow us to contact your preferred contact when you make purchases over your remaining expense money </label>
-        <input type="checkbox" name="can-we-talk-to-your-mom" id="can-we-talk-to-your-mom" />
-      </div>
-      <div class="form-input">
-        <label for="name">Can we send you notifications? </label>
-        <input type="checkbox" name="notifications-allowed" id="notifications-allowed" />
-      </div>
-      <button id="saveInfo">Save</button>
-      <a id="submitForm" href="#"></a>
+
+      <section id="first">
+        <div class="form-input">
+          <label for="name">Your name: </label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="form-input">
+          <label for="phone">Your preferred contact's phone number: </label>
+          <input type="phone" name="mom" id="mom" />
+        </div>
+        <div class="form-input">
+          <label for="income">Your monthly disposable income: </label>
+          <input type="number" name="income" id="income" />
+        </div>
+        <div class="form-input">
+          <label for="income">Over how long? </label>
+          <select name="income-period" id="income-period">
+            <option value="days">1 day</option>
+          </select>
+        </div>
+      <br style="clear:both;" />
+      </section>
+
+      <section>
+        <div class="form-input">
+          <label for="name">Allow us to contact your preferred contact when you make purchases over your remaining expense money </label>
+          <input type="checkbox" name="can-we-talk-to-your-mom" id="can-we-talk-to-your-mom" />
+        </div>
+        <div class="form-input">
+          <label for="name">Can we send you notifications? </label>
+          <input type="checkbox" name="notifications-allowed" id="notifications-allowed" />
+        </div>
+        <button id="submitForm">Save</button>
+      </section>
+
     </form>
+
     <script src="scripts/moment.min.js"></script>
     <script src="scripts/savegoal.js"></script>
   </body>
