@@ -18,6 +18,12 @@
   margin: 20px;
 }
 
+#goalInfo {
+  align-self: center;
+  text-align: center;
+  width : 90;
+  margin-bottom: 5px;
+}
 
 body {
     background-color: rgb(242, 242, 242);
