@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function (e) {
   chrome.storage.sync.get(['goal', 'preferences'], function (items) {
     const goal = items.goal;
+    if (items.preferences === undefined) {
+      items.preferences = { name: undefined };
+    }
     const name = items.preferences.name;
     const daysUntilReached = "Misha, pls implement this feature!!!"; // Misha, please implement this feature
     if (goal === undefined) {
@@ -8,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
         document.getElementById('message').innerHTML = "Hey there, you should add a goal!";
       } else {
         document.getElementById('message').innerHTML = "Hey " + name + ", you should add a goal!";
+        console.log(name);
       }
     } else {
       if (name === undefined) {
