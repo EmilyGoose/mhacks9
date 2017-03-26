@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 function daysBetween(day1, day2) {
-  return ((day2 - day1) / (1000*60*60*24));
+  return Math.round((day2 - day1) / (1000*60*60*24));
 }
 
 // This is called by #submitForm
@@ -22,12 +22,12 @@ function saveChanges() {
   // Stop the form from submitting
   event.preventDefault();
   // We need to preemptively get incomeHistory and lastIncome to avoid adding duplicates to history
-  chrome.storage.sync.get(['incomeHistory', 'lastIncome'], function (items) {
+  chrome.storage.sync.get(['incomeHistory', 'lastIncome', 'calculatedTotalIncome'], function (items) {
     let history = items.incomeHistory;
     let lastIncome = items.lastIncome;
-    var calcTotalIncome = items.calculatedTotalIncome;
+    let calcTotalIncome = items.calculatedTotalIncome;
 
-    if (true) {//lastIncome === undefined) {
+    if (lastIncome === undefined) {
       //Create empty last income for first run
       lastIncome = {
         created : Date.now(),
@@ -60,7 +60,7 @@ function saveChanges() {
     } else {
       // If you did, it will be appended to incomeHistory and lastIncome will be updated
       history.push({
-        created: moment(),
+        created: Date.now(),
         period: document.getElementById('income-period').value,
         value: document.getElementById('income').value
       });
@@ -69,8 +69,7 @@ function saveChanges() {
       chrome.storage.sync.set({
         calculatedTotalIncome: calcTotalIncome, // Misha, write a function to calculate the total or pass in a variable or something
         lastIncome: {
-          created: moment(),
-          period: document.getElementById('income-period').value,
+          created: Date.now(),
           value: document.getElementById('income').value
         },
         incomeHistory: history,
@@ -86,4 +85,26 @@ function saveChanges() {
 }
 
 // Add the click listener to #submitForm in JS
-document.getElementById('submitForm').addEventListener('click', saveChanges, false)
+document.getElementById('submitForm').addEventListener('click', saveChanges, false);
+
+// Add the click listener to populate everything with test data
+document.getElementById('testData').addEventListener('click', function() {
+  var fiveda = Date.now() - ((1000*60*60*24) * 5);
+  chrome.storage.sync.set({
+    calculatedTotalIncome: 100, // Misha, write a function to calculate the total or pass in a variable or something
+
+    lastIncome: {
+      created: fiveda,
+      value: 20
+    },
+    incomeHistory: [
+      {created : fiveda - (1000*60*60*24) * 10, value : 10},
+      {created: fiveda, value: 20}
+    ],
+    preferences: {
+      name: document.getElementById('name').value,
+      "notifications-allowed": document.getElementById('notifications-allowed').checked
+    }
+  });
+  alert("The fake data is planted!!");
+}, false);
