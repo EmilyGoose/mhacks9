@@ -1,3 +1,24 @@
+function daysBetween(day1, day2) {
+  return Math.round((day2 - day1) / (1000*60*60*24));
+}
+
+function daysUntilReached() {
+  chrome.storage.sync.get(['lastIncome', 'calculatedTotalIncome', 'goal'], function (items) {
+    let lastIncome = items.lastIncome;
+    let calcTotalIncome = items.calculatedTotalIncome;
+    let goal = items.goal;
+
+    let saved = calcTotalIncome + daysBetween(lastIncome.created, Date.now()) *  parseInt(lastIncome.value);
+
+    let price = parseFloat(goal.price.substring(1));
+
+    let daysLeft = Math.round((price - saved)/lastIncome.value);
+
+    document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, will be reached in " + daysLeft + " days!";
+  });
+}
+
+
 document.addEventListener('DOMContentLoaded', function (e) {
   chrome.storage.sync.get(['goal', 'preferences'], function (items) {
     const goal = items.goal;
@@ -5,7 +26,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
       items.preferences = { name: undefined };
     }
     const name = items.preferences.name;
-    const daysUntilReached = "Misha, pls implement this feature!!!"; // Misha, please implement this feature
+
+    daysUntilReached();
+
     if (goal === undefined) {
       if (name === undefined) {
         document.getElementById('message').innerHTML = "Hey there, you should add a goal!";
@@ -16,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
     } else {
       if (goal.type == "item") {
         if (name === undefined) {
-          document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, will be reached in " + daysUntilReached + " days!";
+          document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, will be reached in some days!";
         } else {
-          document.getElementById('message').innerHTML = "Hey " + name + ", your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a> will be reached in " + daysUntilReached + " days!";
+          document.getElementById('message').innerHTML = "Hey " + name + ", your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a> will be reached in some days!";
         }
       } else {
         if (name === undefined) {
