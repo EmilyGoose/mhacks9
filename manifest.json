@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 4,
 
   "name": "3-Click Ordering",
   "description": "Stop spending money on Amazon!",
@@ -11,7 +11,7 @@
       "128": "icons/icon128.png"
   },
 
-  "version": "0.9",
+  "version": "1.0",
 
   "browser_action": {
    "default_icon": {
