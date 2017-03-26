@@ -1,12 +1,26 @@
-body {
-    background-color: rgb(242, 242, 242);
-    font-family: "Raleway";
-}
-
 #brand {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
+}
+
+#first {
+  float: left;
+  margin-right: 75px;
+}
+
+#first div {
+  display: flex;
+  flex-direction: column;
+}
+
+#preferences2 {
+  margin: 20px;
+}
+
+body {
+    background-color: rgb(242, 242, 242);
+    font-family: "Raleway";
 }
 
 a {
@@ -50,18 +64,24 @@ body{
 
 h2 {
   font-family: Raleway;
-  margin: 20px;
   font-size: 32px;
 }
 
 form {
-  margin: 20px;
+  margin-right: 20px;
+  float: left;
 }
 
 input {
   background: white;
   border: solid 1px rgb(52, 99, 146);
-  height: 30px;
+  height: 40px;
+  width: 300px;
+}
+
+input[type="checkbox"] {
+  height: 15px;
+  width: 15px;
 }
 
 label {
