@@ -6,10 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (preferences !== undefined) {
       document.getElementById('message').remove();
       document.getElementById('name').value = preferences.name;
-      document.getElementById('mom').value = preferences.mom;
       document.getElementById('income').value = items.lastIncome.value;
       document.getElementById('income-period').value = items.lastIncome.period;
-      document.getElementById('can-we-talk-to-your-mom').checked = preferences['can-we-talk-to-your-mom'];
       document.getElementById('notifications-allowed').checked = preferences['notifications-allowed'];
     }
   });
@@ -21,23 +19,25 @@ function saveChanges() {
   event.preventDefault();
   // We need to preemptively get incomeHistory and lastIncome to avoid adding duplicates to history
   chrome.storage.sync.get(['incomeHistory', 'lastIncome'], function (items) {
-    const history = items.incomeHistory;
+    let history = items.incomeHistory;
     const lastIncome = items.lastIncome;
+
+    if (history === undefined) {
+      history = [];
+    }
+
     // Check to see if you didn't change your income data
-    if (lastIncome.period == document.getElementById('income-period').value && lastIncome.value == document.getElementById('income').value) {
+    if (lastIncome !== undefined && lastIncome.period == document.getElementById('income-period').value && lastIncome.value == document.getElementById('income').value) {
       // Get a value saved in a form and save it using the Chrome extension storage API.
       chrome.storage.sync.set({
         preferences: {
           name: document.getElementById('name').value,
-          mom: document.getElementById('mom').value,
-          name: document.getElementById('name').value,
-          "can-we-talk-to-your-mom": document.getElementById('can-we-talk-to-your-mom').checked,
           "notifications-allowed": document.getElementById('notifications-allowed').checked
         }
       });
     } else {
       // If you did, it will be appended to incomeHistory and lastIncome will be updated
-      history.append({
+      history.push({
         created: moment(),
         period: document.getElementById('income-period').value,
         value: document.getElementById('income').value
@@ -53,9 +53,6 @@ function saveChanges() {
         incomeHistory: history,
         preferences: {
           name: document.getElementById('name').value,
-          mom: document.getElementById('mom').value,
-          name: document.getElementById('name').value,
-          "can-we-talk-to-your-mom": document.getElementById('can-we-talk-to-your-mom').checked,
           "notifications-allowed": document.getElementById('notifications-allowed').checked
         }
       });
