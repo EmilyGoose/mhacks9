@@ -4,8 +4,6 @@
     <link rel="stylesheet" href="popup.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <title>Preferences</title>
-    <script src="scripts/jquery.js"></script>
-    <script src="scripts/preferences.js"></script>
   </head>
   <body>
     <header>
@@ -23,8 +21,14 @@
         <input type="phone" name="mom" id="mom" />
       </div>
       <div class="form-input">
-        <label for="income">Your monthly disposable income: </label>
+        <label for="income">Your disposable income: </label>
         <input type="number" name="income" id="income" />
+      </div>
+      <div class="form-input">
+        <label for="income">Over how long? </label>
+        <select name="income-period" id="income-period">
+          <option value="days">1 day</option>
+        </select>
       </div>
       <div class="form-input">
         <label for="name">Allow us to contact your preferred contact when you make purchases over your remaining expense money </label>
@@ -37,6 +41,7 @@
       <button id="saveInfo">Save</button>
       <a id="submitForm" href="#"></a>
     </form>
+    <script src="scripts/moment.min.js"></script>
     <script src="scripts/savegoal.js"></script>
   </body>
 </html>
