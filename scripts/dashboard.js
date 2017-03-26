@@ -14,7 +14,11 @@ function daysUntilReached() {
 
     let daysLeft = Math.round((price - saved)/lastIncome.value);
 
-    document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, will be reached in " + daysLeft + " days!";
+    if (daysLeft > 0) {
+      document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, will be reached in " + daysLeft + " days!";
+    } else {
+      document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, has been reached!";
+    }
   });
 }
 
