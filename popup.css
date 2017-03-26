@@ -25,10 +25,16 @@
   margin-bottom: 5px;
 }
 
-body {
+body{
+    margin: 0;
+}
+
+#popup {
     background-color: rgb(242, 242, 242);
     font-family: "Raleway";
+    width:200px;
 }
+
 
 a {
     text-decoration: none;
@@ -64,9 +70,6 @@ header {
     padding: 20px;
     flex-direction: row;
     background-color: rgb(27, 160, 225);
-}
-body{
-    margin: 0;
 }
 
 h2 {
