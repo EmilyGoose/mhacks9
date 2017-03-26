@@ -14,10 +14,18 @@ document.addEventListener('DOMContentLoaded', function (e) {
         console.log(name);
       }
     } else {
-      if (name === undefined) {
-        document.getElementById('message').innerHTML = "Hey there, your goal, " + goal.name + " will be reached in " + daysUntilReached + " days!";
+      if (goal.type == "item") {
+        if (name === undefined) {
+          document.getElementById('message').innerHTML = "Hey there, your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a>, will be reached in " + daysUntilReached + " days!";
+        } else {
+          document.getElementById('message').innerHTML = "Hey " + name + ", your goal, <a target='_blank' href='https://www.amazon.com/dp/item/" + goal.id + "'>" + goal.name + "</a> will be reached in " + daysUntilReached + " days!";
+        }
       } else {
-        document.getElementById('message').innerHTML = "Hey " + name + ", your goal, " + goal.name + " will be reached in " + daysUntilReached + " days!";
+        if (name === undefined) {
+          document.getElementById('message').innerHTML = "Hey there, your goal, " + goal.name + "</a>, will be reached in " + daysUntilReached + " days!";
+        } else {
+          document.getElementById('message').innerHTML = "Hey " + name + ", your goal, " + goal.name + " will be reached in " + daysUntilReached + " days!";
+        }
       }
     }
   });
