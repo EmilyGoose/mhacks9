@@ -59,9 +59,10 @@ form {
 }
 
 input {
-
+  background: white;
+  border: solid 1px rgb(52, 99, 146);
+  height: 30px;
 }
 
 label {
-  font-size: 18px;
 }
