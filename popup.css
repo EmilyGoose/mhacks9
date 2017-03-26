@@ -37,7 +37,6 @@ h1.bar {
     color: white;
     margin-left: 15px;
     font-family: Raleway;
-    font-size: 48px;
 }
 header {
     display: flex;
@@ -57,4 +56,12 @@ h2 {
 
 form {
   margin: 20px;
+}
+
+input {
+
+}
+
+label {
+  font-size: 18px;
 }
