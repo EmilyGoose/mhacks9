@@ -30,13 +30,23 @@ $(document).ready(function(){
     var pageUrl = $(location).attr('href');
 
     var productID = pageUrl.split("/")[5];
+    var productName = jQuery.trim($("#productTitle").html());
+    var productPrice = $("#priceblock_ourprice").html();
 
     var setGoalButton = $("<button id='setGoalButton' style='text-align:center; margin:5px; padding:2px;'>Set as goal</button>");
 
     setGoalButton.insertAfter("#title_feature_div");
 
     document.getElementById('setGoalButton').addEventListener('click', function(event) {
-      alert("It doesn't write to storage yet, fix this.");
+      chrome.storage.sync.set({goal : {
+        type : "item", //Can be "item" or "cash"
+        name : productName,
+        id : productID,
+        price : productPrice
+      }});
+
+      alert("Your goal of '" + productName + "' for " + productPrice + " has been saved.");
+      
     });
 
   }
