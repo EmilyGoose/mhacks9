@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const preferences = items.preferences;
     // If this is not your first run, the welcome header is hidden and inputs are pre-filled
     if (preferences !== undefined) {
-      document.getElementById('initial').remove();
+      document.getElementById('message').remove();
       document.getElementById('name').value = preferences.name;
       document.getElementById('mom').value = preferences.mom;
       document.getElementById('income').value = items.lastIncome.value;
@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // This is called by #submitForm
 function saveChanges() {
+  // Stop the form from submitting
+  event.preventDefault();
   // We need to preemptively get incomeHistory and lastIncome to avoid adding duplicates to history
   chrome.storage.sync.get(['incomeHistory', 'lastIncome'], function (items) {
     const history = items.incomeHistory;

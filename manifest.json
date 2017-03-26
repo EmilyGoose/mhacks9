@@ -2,7 +2,7 @@
   "manifest_version": 3,
 
   "name": "3-Click Ordering",
-  "description": "This extension will text your mom/gf/dog/goldfish if you spend money on dumb stuff",
+  "description": "Stop spending money on Amazon!",
   "icons":{
       "16": "icons/icon16.png",
       "19": "icons/icon.png",
@@ -11,7 +11,7 @@
       "128": "icons/icon128.png"
   },
 
-  "version": "0.5",
+  "version": "0.6",
 
   "browser_action": {
    "default_icon": {
