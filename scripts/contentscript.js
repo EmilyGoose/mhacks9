@@ -33,7 +33,7 @@ $(document).ready(function(){
     var productName = jQuery.trim($("#productTitle").html());
     var productPrice = $("#priceblock_ourprice").html();
 
-    var setGoalButton = $("<button id='setGoalButton' style='text-align:center; margin:5px; padding:2px;'>Set as goal</button>");
+    var setGoalButton = $("<button id='setGoalButton'><img src='"+chrome.extension.getURL("icons/icon.png")+"' alt='Icon' height='15' width='15'>Set as goal</button>");
 
     setGoalButton.insertAfter("#title_feature_div");
 
@@ -46,7 +46,7 @@ $(document).ready(function(){
       }});
 
       alert("Your goal of '" + productName + "' for " + productPrice + " has been saved.");
-      
+
     });
 
   }
