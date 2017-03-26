@@ -22,6 +22,7 @@
 body {
     background-color: rgb(242, 242, 242);
     font-family: "Raleway";
+    width:200px;
 }
 
 a {
