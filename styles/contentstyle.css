@@ -22,10 +22,10 @@
   color: rgb(27, 160, 225);
   border: solid 1px rgb(27, 160, 225);
   background: white;
-  font-family: Raleway;
+  font-family: Arial;
   cursor: pointer;
   width:80px; height: 20px;
-  text-align: left;
+  text-align: middle;
 }
 
 .click:hover {
