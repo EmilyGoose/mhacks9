@@ -47,3 +47,8 @@ header {
 body{
     margin: 0;
 }
+
+h2 {
+  font-family: Raleway;
+  margin: 20px;
+}
