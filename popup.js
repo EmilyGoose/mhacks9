@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let saved = calcTotalIncome + daysBetween(lastIncome.created, Date.now()) *  parseInt(lastIncome.value);
 
-    console.log(saved);
+    let price = parseFloat(goal.price.substring(1));
+
+    let daysLeft = Math.round((price - saved)/lastIncome.value);
 
     let string = $(
       "<div id='goalInfo'> Saved: $" +
@@ -23,10 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
       "</br>" +
       "Goal: " +
       goal.price +
-      "</div>"
+      "</br>" +
+      "Goal in " +
+      daysLeft +
+      " days</div>"
     );
-
-    console.log(string);
 
     string.insertAfter($("#brand"));
 
