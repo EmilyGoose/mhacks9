@@ -2,6 +2,20 @@ function daysBetween(day1, day2) {
   return Math.round((day2 - day1) / (1000*60*60*24));
 }
 
+function deletThis() {
+  chrome.storage.sync.get(['calculatedTotalIncome'], function (items) {
+    let calcTotalIncome = items.calculatedTotalIncome;
+
+    let itemPrice = parseFloat($('.sc-price-sign').html().substring(1));
+
+    let newIncome = calcTotalIncome - itemPrice;
+
+    chrome.storage.sync.set({
+      calculatedTotalIncome: newIncome
+    });
+  });
+}
+
 $(document).ready(function(){
   if ($('input[name=proceedToCheckout]').length > 0) {
     //Runs on the cart page and asks user if they're sure we want to checkout
@@ -24,6 +38,10 @@ $(document).ready(function(){
     );
 
     theFakeBox.insertBefore("#gutterCartViewForm");
+
+    document.getElementById('theFakeBox').addEventListener('click', function(event) {
+      deletThis();
+    });
 
     chrome.storage.sync.get(['lastIncome', 'calculatedTotalIncome', 'goal'], function (items) {
       let lastIncome = items.lastIncome;
