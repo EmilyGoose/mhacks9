@@ -19,17 +19,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let daysLeft = Math.round((price - saved)/lastIncome.value);
 
-    let string = $(
-      "<div id='goalInfo'> Saved: $" +
-      saved  +
-      "</br>" +
-      "Goal: " +
-      goal.price +
-      "</br>" +
-      "Goal in " +
-      daysLeft +
-      " days</div>"
-    );
+    if (daysLeft > 0) {
+      var string = $(
+        "<div id='goalInfo'> Saved: $" +
+        saved  +
+        "</br>" +
+        "Goal: " +
+        goal.price +
+        "</br>" +
+        "Income: $" +
+        lastIncome.value +
+        "/day</br>" +
+        "Goal in " +
+        daysLeft +
+        " days</div>"
+      );
+    } else {
+      var string = $(
+        "<div id='goalInfo'> Saved: $" +
+        saved  +
+        "</br>" +
+        "Goal: " +
+        goal.price +
+        "</br>" +
+        "Income: $" +
+        lastIncome.value +
+        "/day</br>" +
+        "Goal reached! </div>"
+      );
+    }
 
     string.insertAfter($("#brand"));
 

@@ -67,7 +67,7 @@ function saveChanges() {
       // Get a value saved in a form and save it using the Chrome extension storage API.
 
       chrome.storage.sync.set({
-        calculatedTotalIncome: calcTotalIncome, // Misha, write a function to calculate the total or pass in a variable or something
+        calculatedTotalIncome: calcTotalIncome,
         lastIncome: {
           created: Date.now(),
           value: document.getElementById('income').value
