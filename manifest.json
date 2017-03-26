@@ -36,7 +36,10 @@
   "options_page": "options.html",
 
   "permissions": [
-    "tabs", "webNavigation", "*://*.amazon.com/*"
+    "tabs",
+    "webNavigation",
+    "*://*.amazon.com/*",
+    "storage"
   ],
   "web_accessible_resources": ["icons/*"]
 }
