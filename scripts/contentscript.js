@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
   if ($('input[name=proceedToCheckout]').length > 0) {
+    //Runs on the cart page and asks user if they're sure we want to checkout
     var theBox = $('input[name=proceedToCheckout]');
     var theFakeBox = $(
       "<div id='theFakeBox'>" +
@@ -21,6 +22,22 @@ $(document).ready(function(){
     );
 
     theFakeBox.insertBefore("#gutterCartViewForm");
+
+  } else if ($('#add-to-cart-button').length > 0) {
+    //Runs on the item page and offers to set it as a goal
+
+    var submitButton = $('#add-to-cart-button');
+    var pageUrl = $(location).attr('href');
+
+    var productID = pageUrl.split("/")[5];
+
+    var setGoalButton = $("<button id='setGoalButton' style='text-align:center; margin:5px; padding:2px;'>Set as goal</button>");
+
+    setGoalButton.insertAfter("#title_feature_div");
+
+    document.getElementById('setGoalButton').addEventListener('click', function(event) {
+      alert("It doesn't write to storage yet, fix this.");
+    });
 
   }
 });
