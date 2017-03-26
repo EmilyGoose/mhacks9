@@ -14,8 +14,8 @@ $(document).ready(function(){
       $('.sc-price-sign').html() + "</span>" +
       "<p>I would tell you how much longer your goal will take " +
       "but it's not implemented.</p>" +
-      "<p>Are you sure?</p>" +
-      "<button id='userIsSure' " +
+      "<p>Are you sure you want to proceed?</p>" +
+      "<button id='userIsSure'class='click' "+
       "onclick='var element = document.getElementById(\"theFakeBox\");" +
       "element.parentNode.removeChild(element);'>I'm sure!</button>" +
       "</div>"
@@ -33,7 +33,7 @@ $(document).ready(function(){
     var productName = jQuery.trim($("#productTitle").html());
     var productPrice = $("#priceblock_ourprice").html();
 
-    var setGoalButton = $("<button id='setGoalButton'><img src='"+chrome.extension.getURL("icons/icon.png")+"' alt='Icon' height='15' width='15'>Set as goal</button>");
+    var setGoalButton = $("<button id='setGoalButton' class='click'><img src='"+chrome.extension.getURL("icons/icon.png")+"' alt='Icon' height='15' width='15'>Set as goal</button>");
 
     setGoalButton.insertAfter("#title_feature_div");
 
