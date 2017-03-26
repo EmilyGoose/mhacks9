@@ -18,6 +18,10 @@
   margin-bottom: 20px;
 }
 
+#setGoalbutton {
+  rgb(27, 160, 225)
+}
+
 .money {
   color: red;
 }
